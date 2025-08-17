@@ -12,20 +12,17 @@ A single-route FastAPI app that handles multiple AI tasks, includes optional JWT
 - **MCP integration:** Minimal local MCP server with an `upper(text)` demo tool + client
 - **Backtest kit:** Simple SMA crossover script that outputs CSV, chart, and metrics
 
-> ⚠️ You need an **OpenAI API key** to use the AI features. Put it in `.env`.
-
 ---
 
-## Quick Start (macOS + VS Code)
+## (macOS + VS Code)
 
-### 1) Clone / unzip
-- Download the ZIP from ChatGPT, unzip it, then in Terminal:
+### 1) Clone 
 ```bash
 cd softvence-ai-task
 python3 -m venv .venv && source .venv/bin/activate
 pip install -r requirements.txt
 cp .env.example .env
-# edit .env and set OPENAI_API_KEY=...
+# At .env set OPENAI_API_KEY=...
 ```
 
 ### 2) Run the API
@@ -64,7 +61,7 @@ curl -X POST http://127.0.0.1:8000/ai-task   -H "Authorization: Bearer TOKEN" -H
 
 ---
 
-## MCP Integration (minimal demo)
+## MCP Integration 
 
 This repo includes a tiny MCP server and client using the official Python SDK.
 
@@ -72,37 +69,9 @@ This repo includes a tiny MCP server and client using the official Python SDK.
 - **Client:** `app/mcp_client.py` connects over stdio and calls `upper`.
 - The FastAPI **Q&A** path will *attempt* to call the MCP tool and prepend a hint.
 
-Run the server manually (optional):
-```bash
-python -m app.mcp_server
-```
-Then, in another terminal:
-```bash
-python -m app.mcp_client
-```
-
-> Docs you may find helpful:
-> - Official Python SDK: https://github.com/modelcontextprotocol/python-sdk
-> - Client quickstart: https://modelcontextprotocol.io/quickstart/client
-
 ---
 
-## Backtest (bonus deliverable)
 
-A simple SMA crossover example that outputs CSV, a PNG chart, and metrics.
-```bash
-python backtest/sma_backtest.py AAPL
-# outputs to backtest/results/
-```
-
----
-
-## Deploy (free tier hints)
-
-- **Render:** Use `render.yaml` as a starting point (Free Web Service). Set `OPENAI_API_KEY` and `JWT_SECRET` in the dashboard.
-- **Docker:** `docker build -t softvence-ai-task . && docker run -p 8000:8000 softvence-ai-task`
-
----
 
 ## Folder structure
 ```
@@ -124,8 +93,4 @@ run.sh
 .env.example
 ```
 
-## Notes / Assumptions
-- JWT has **no expiration** to match the spec wording; rotate secrets if needed.
-- Image endpoint returns **Base64** for portability. You may host URLs if you prefer.
-- MCP is included as a **minimal, working demo** (stdio transport). Swap in your own tools as needed.
-- If you prefer not to use OpenAI, you can replace the client calls with other providers.
+

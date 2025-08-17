@@ -138,3 +138,5 @@ run.sh
 - CI pipeline (lint, type-check, tests) + container scan.
 - Extend MCP tools for data retrieval, compliance checks, or custom retrieval-augmented generation.
 
+## Link
+https://softvence-ai-task-gbsh.onrender.com/docs

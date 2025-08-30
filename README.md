@@ -1,4 +1,4 @@
-# Softvence Omega — AI Task 
+# FastAPI
 
 A single-route FastAPI app that handles multiple AI tasks, includes optional JWT auth, integrates a minimal MCP server/client for tool calling, and ships with a basic trading backtest utility. Tested locally on macOS.
 
